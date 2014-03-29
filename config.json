@@ -1,0 +1,24 @@
+{
+  "locals": {
+    "url": "http://localhost:8080",
+    "name": "Indicate Gray",
+    "owner": "Matt Keff",
+    "description": ""
+  },
+  "plugins": [
+    "./node_modules/wintersmith-handlebars/wintersmith-handlebars.coffee"
+  ],
+  "temmplates": "./templates",
+  "handlebars": {
+    "partialDir": "partials"
+  },
+  "require": {
+    "moment": "moment",
+    "_": "underscore",
+    "typogr": "typogr"
+  },
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  }
+}
