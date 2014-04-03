@@ -17,19 +17,22 @@
             State = History.getState(),
             href = State.url;
 
+
+        $content.animate({'opacity': 0}, function() {
                 $content.load(href + " .content >*", function(responseText) {
                     pagecache[href] = responseText;
                     History.pushState(null, null, href);
-                    $content.animate({'opacity': 1});
-                    pageload();
+                    $content.animate({'opacity': 1}, function() {
+                        pageload();
+                    });
+
                 });
 
-        // $content.animate({'opacity': 0}, function() {
             // if (typeof pagecache[State.hash] != 'undefined') {
             //     $('.content').empty().append(pagecache[State.hash]);
             // } else {
             // }
-        // });
+        });
     });
 
     $('.navbar a').click(function(event) {
@@ -41,6 +44,5 @@
         $this.addClass('active');
         return false;
     });
-
     pageload();
 })();
