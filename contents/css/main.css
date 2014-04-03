@@ -19,10 +19,6 @@ a:hover { color: #CCC; }
 a { text-decoration: none }
 
 .container {
-    whitespace:no-wrap;
-    float:left;
-    width:100%;
-    min-width:1100px;
     &:before,
     &:after {
         content: " "; // 1
@@ -46,7 +42,7 @@ a { text-decoration: none }
     padding: 0;
     padding-left: 12px;
     color: #808080;
-    margin: 18 0;
+    margin: 18px 0;
 }
 
 .navbar ul li {
@@ -59,25 +55,26 @@ a { text-decoration: none }
 }
 
 .content {
-    position: relative;
+    /* position: relative; */
     vertical-align: top;
     padding-top: 9px;
     display: inline-block;
+    /* display: block; */
     font-family: 'PT Sans', sans-serif;
     font-size: 14pt;
     text-align: center;
+    /* width: 100%; */
+    /* height: 100%; */
 }
 
-.composite .gallery {
+.gallery {
+    display: block;
     width: 100%;
-    max-width: 1100px;
-}
-.process .gallery {
-    width:100%;
     max-width: 1100px;
 }
 
 #slides {
+    display:block;
     width: 100%;
 }
 /* .gallery img { */
@@ -109,14 +106,15 @@ a { text-decoration: none }
     display:none;
 }
 
-.slidesjs-previous {
+.slidesjs-previous,.gallery .slick-prev {
     float: left;
 }
-.slidesjs-next {
+.slidesjs-next,.gallery .slick-next {
     float: right;
     right: -1px;
 }
-.slidesjs-navigation {
+.slidesjs-navigation,.gallery .slick-prev,.gallery .slick-next {
+    margin-top: 0;
     top: 0;
     opacity: 0;
     background-color: white;
@@ -125,31 +123,39 @@ a { text-decoration: none }
     color: white;
     z-index: 100;
     display: block;
-    height: 700px;
+    height: 100%;
 }
 .slidesjs-navigation:visited, .slidesjs-navigation:hover{
     color: white;
 }
-.slidesjs-navigation:hover {
+.slidesjs-navigation:hover,.gallery .slick-prev:hover,.gallery .slick-next:hover  {
     opacity: 0.5;
     cursor:pointer;
 }
 
-@media only screen and (max-width: 480px) {
-    .logo { display:none }
-    .content {
-        display: block;
-        float: none;
-        width: 100%;
-        max-width: 480px;
-    }
-    .content .gallery { max-width: 100%; }
-    .navbar {
-        display:block;
-        float: none;
-    }
-    .navbar ul {
-        margin: 0 0;
+/* @media only screen and (max-width: 480px) { */
+/*     .logo { display:none } */
+/*     .content { */
+/*         display: block; */
+/*         float: none; */
+/*         width: 100%; */
+/*         max-width: 480px; */
+/*     } */
+/*     .content .gallery { max-width: 100%; } */
+/*     .navbar { */
+/*         display:block; */
+/*         float: none; */
+/*     } */
+/*     .navbar ul { */
+/*         margin: 0 0; */
 
-    }
+/*     } */
+/* } */
+
+/* remove borders on slideshow */
+.gallery .slick-slide img {
+    -webkit-transform: initial;
+    -moz-transform: initial;
+    -ms-transform: initial;
+    transform: initial;
 }
